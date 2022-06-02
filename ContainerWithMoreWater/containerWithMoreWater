@@ -1,0 +1,31 @@
+package ContainerWithMoreWater;
+import java.util.ArrayList;
+
+class Solution {
+    public int Area(int[] height) {
+        int left = 0, right = height.length - 1, max = 0, minHeight = 0, area = 0;
+        while(left < right) {
+            minHeight = Math.min(height[left], height[right]);
+            area = minHeight * (right - left);
+            max = Math.max(max, area);
+            if(height[left] < height[right]) left++;
+            else right--;
+        }
+        return max;
+
+    }
+}
+public class TwoSum {
+    public static void main(String[] args) {
+        int[] arr = {2,7,11,15};
+        Solution sol = new Solution();
+        int res = sol.Area(arr);
+
+    }
+
+//    for(int i = 0; i < 2; i++) {
+//        System.out.println(res[i]);
+//    }
+
+
+}
